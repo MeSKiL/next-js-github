@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "cross-env NODE_ENV=production node server.js",
     "export": "next export",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
   },
