@@ -1,5 +1,5 @@
 module.exports = {
-    app:[
+    apps:[
         {
             name:'next-project',
             script:'./server.js',
