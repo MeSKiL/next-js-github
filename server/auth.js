@@ -1,5 +1,5 @@
 const axios = require('axios');
-const config = require('../config');
+const config = require('../config.sample');
 const {request_token_url, client_id, client_secret} = config.github;
 
 module.exports = (server) => {

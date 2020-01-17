@@ -24,12 +24,13 @@ const footerStyle = {
 };
 
 import getConfig from "next/config";
+
 const {publicRuntimeConfig} = getConfig();
 
 
 function MyLayOut({children, user, logout, router}) {
     const urlQuery = router.query && router.query.query; // 给search query默认值
-    const [search, setSearch] = useState(urlQuery||'');
+    const [search, setSearch] = useState(urlQuery || '');
 
     const handleSearchChange = useCallback((event) => {
         setSearch(event.target.value)
@@ -37,7 +38,7 @@ function MyLayOut({children, user, logout, router}) {
 
     const handleOnSearch = useCallback(() => {
         router.push(`/search?query=${search}`);
-    },[search]);
+    }, [search]);
 
     const handleLogout = useCallback(() => {
         logout()
@@ -69,16 +70,16 @@ function MyLayOut({children, user, logout, router}) {
     return (
         <Layout>
             <Header>
-                <Container renderer={<div className="header-inner" />}>
+                <Container renderer={<div className="header-inner"/>}>
                     <div className="header-left">
                         <div className="logo">
                             <Link href='/'>
-                                <Icon type="github" style={githubIconStyle} />
+                                <Icon type="github" style={githubIconStyle}/>
                             </Link>
                         </div>
                         <div>
                             <Input.Search placeholder="搜索仓库" value={search} onChange={handleSearchChange}
-                                          onSearch={handleOnSearch} />
+                                          onSearch={handleOnSearch}/>
                         </div>
                     </div>
                     <div className="header-right">
@@ -87,13 +88,13 @@ function MyLayOut({children, user, logout, router}) {
                                 user && user.id ? (
                                     <Dropdown overlay={userDropDown}>
                                         <a href='javascript:void(0)'>
-                                            <Avatar size={40} src={user.avatar_url} />
+                                            <Avatar size={40} src={user.avatar_url}/>
                                         </a>
                                     </Dropdown>
                                 ) : (
                                     <Tooltip title="点击进行登录">
                                         <a href={`/prepare-auth?url=${router.asPath}`}>
-                                            <Avatar size={40} icon="user" />
+                                            <Avatar size={40} icon="user"/>
                                         </a>
                                     </Tooltip>)
                             }
@@ -104,13 +105,14 @@ function MyLayOut({children, user, logout, router}) {
             </Header>
             <Content>
                 {/*cloneElement扩展组件可复用性的高级技巧*/}
-                <Container renderer={<div />}>
+                <Container renderer={<div/>}>
                     {children}
                 </Container>
             </Content>
             <Footer style={footerStyle}>
                 Develop by MeSKiL @
                 <a href="mailto:403797970@qq.com">403797970@qq.com</a>
+                <span style={{marginLeft:'10px'}}>备案号：沪ICP备19037728号</span>
             </Footer>
             <style jsx>{`
                 .header-inner{

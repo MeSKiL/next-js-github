@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const withCss = require('@zeit/next-css');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
-const gitConfig = require('./config');
+const gitConfig = require('./config.sample');
 const config = {
     distDir:'dist', // 编译文件的输出目录,没配置就在.next里
     generateEtags: true, // 是否给每个路由生成Etag，如果两次请求同一个页面的etag是相同的，浏览器就不请求内容，直接使用缓存,用nginx时可以关闭，因为nginx会有etags。
